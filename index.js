@@ -2,12 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const App = () => {
-    const course = 'Half Stack application development'
-    const part1 = 'Fundamentals of React'
+    const course = 'Half Stack application development';
     const exercises1 = 10
-    const part2 = 'Using props to pass data'
     const exercises2 = 7
-    const part3 = 'State of a component'
     const exercises3 = 14
     const total = exercises1 + exercises2 +exercises3;
 
@@ -18,12 +15,20 @@ const App = () => {
             </div>
         )
     }
+
+    const Part = (props) => {
+        return (
+            <div>
+                <p>{props.part} {props.exercise}</p>
+            </div>
+        )
+    }
     const Content = (props) => {
         return (
             <div>
-                {props.part1}
-                {props.part2}
-                {props.part3}
+                <Part part = 'Fundamentals of React' exercise = '10' />
+                <Part part = 'Using props to pass data' exercise = '7' />
+                <Part part = 'State of a component' exercise = '14' />
             </div>
         )
     }
@@ -38,9 +43,7 @@ const App = () => {
         <div>
             {/* eslint-disable-next-line react/jsx-no-undef */}
             <Header course = {course} />
-            <Content part1={part1} exercises1={exercises1}/>
-            <Content part2={part2} exercises2={exercises2}/>
-            <Content part3={part3} exercises3={exercises3}/>
+            <Content />
             <Total  Number of exercises total ={total}  />
         </div>
     )
